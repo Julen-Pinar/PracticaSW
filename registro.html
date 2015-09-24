@@ -3,17 +3,7 @@
 <HEAD>
 	<TITLE>Registro</TITLE>
 	<LINK rel="STYLESHEET" href="estilos/default.css" type="text/css">
-  <script type="text/javascript">
-    var verValores = function() {
-      var sAux = "";
-      var frm = document.getElementById("registro");
-      for(var i=0;i<frm.elements.length;i++) {
-        sAux += "Nombre: " + frm.elements[i].name + " ";
-        sAux += "Valor: " + frm.elements[i].value + "\n";
-      }
-      alert(sAux);
-    }
-  </script>
+  <script type="text/javascript" src='js/script.js'></script>
 	<META charset="utf-8">
 </HEAD>
 <BODY>
@@ -24,26 +14,33 @@
 		</DIV>
     <hr>
     <DIV class="formulario">
-      <form id="registro" name="registro" onsubmit="verValores()">
-      <p>  Email (Username): <input name="Email" type="text"></p>
-      <p>  Nombre y Apellidos: <input  name="NombreApellidos" type="text"></p>
-      <p>  Password: <input  name="Password" type="password"></p>
-      <p>  Repeat Password: <input  name="PasswordRepeated" type="password"></p>
-      <p>  Telefono: <input  name="Telefono" type="text"></p>
-      <label>Especialidad: </label>
-      <select id="Especialidad" name="Especialidad">
+      <form id="registro" action="phpinfo.php" name="registro" onsubmit="return validar()">
+      <p>  Email (Username): <input name="Email" id="Email" type="text" onblur="validarCorreo()"> *</p>
+      <p>  Nombre y Apellidos: <input  name="NombreApellidos" id="NombreApellidos" type="text" onblur="validarNombreApellidos()"> *</p>
+      <p>  Password: <input  name="Password" id="Password" type="password" onblur="validarPassword()"> *</p>
+      <p>  Repeat Password: <input  name="RepeatPassword" id="RepeatPassword" type="password" onblur="validarRepeatPassword()"> *</p>
+      <p>  Telefono: <input  name="Telefono" id="Telefono" type="text" onblur="validarTelefono()"> *</p>
+      <label>Especialidad:</label>
+      <select id="Especialidad" name="Especialidad" onchange="validarEspecialidad()">
         <option value="" selected="selected"> - selecciona - </option>
         <option value="Ingenieria del Computadores"> Ingenieria del Computadores </option>
         <option value="Computación"> Computación </option>
         <option value="Ingenieria del Software"> Ingenieria del Software </option>
-      </select>
-	  <p> Seleccione una foto: <input type="file" name="foto"> </p>
+				<option value="Otros"> Otros </option>
+      </select> *
       <br />
-      <br />
-      <br />
-      <input type=submit name=Submit id=Submit value="Enviar consulta">
+			<div id="especialidadotra"><input type="text" id="especialidad" name="otraEspecialidad" onblur="validarEspecialidad()"> *</div>
+			<p> Seleccione una Foto :<br /><input type="file" id="file" name="foto" onchange="showImage(this)"></p>
+			<div id="imageShow"></div>
+			<p>Intereses:<br />
+			<textarea id="intereses" name="intereses" cols=30 rows=5></textarea></p>
+			<p> * Obligatorio</p>
+      <div id='errorPassword'></div>
+			<div id='errorRepeatPassword'></div>
+			<div id='errorTelefono'></div>
+			<div id='errorEspecialidad'></div>
+      <input type=submit>
       </form>
-	   </DIV> </DIV>
-	   	<center> <a href='layout.html'>Atrás</a> </center>
+	   </DIV>
 </BODY>
 </HTML>

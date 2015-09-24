@@ -8,6 +8,13 @@ a {
 a:hover {
 	color:gray;
 }
+.error {
+	color: red;
+	font-size:12px;
+}
+#especialidadotra {
+	display:none;
+}
 .container {
 	-webkit-box-shadow: 0px 0px 20px 16px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0px 0px 20px 16px rgba(0,0,0,0.5);
