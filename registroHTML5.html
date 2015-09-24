@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+	<TITLE>Registro</TITLE>
+	<LINK rel="STYLESHEET" href="estilos/default.css" type="text/css">
+	   <script type="text/javascript" src='js/jquery.min.js'></script>
+  <script type="text/javascript" src='js/scriptjquery.js'></script>
+
+	<META charset="utf-8">
+</HEAD>
+<BODY>
+	<DIV class="container_form">
+		<header class='title'>
+			<h1>Registro</h1>
+
+		</header>
+    <hr>
+    <section class="formulario">
+      <form id="registro" action="phpinfo.php" name="registro">
+      <p>  Email (Username): <input name="Email" id="Email" type="text" pattern="^[A-Za-z]*\d{3}@ikasle.ehu.(es|eus)$" required> *</p>
+      <p>  Nombre y Apellidos: <input  name="NombreApellidos" id="NombreApellidos" type="text" pattern="[A-Za-z]+\s[A-Za-z]+\s[A-Za-z]+" required> *</p>
+      <p>  Password: <input  name="Password" id="Password" type="password"  pattern="\w{6}\w*" onchange="form.RepeatPassword.pattern = this.value;" required> *</p>
+      <p>  Repeat Password: <input  name="RepeatPassword" id="RepeatPassword" type="password" title="Repita el password" required> *</p>
+      <p>  Telefono: <input  name="Telefono" id="Telefono" type="text"  pattern="^\d{9}$" required> *</p>
+      <label>Especialidad:</label>
+      <select id="Especialidad" name="Especialidad"  required>
+        <option value="" selected="selected"> - selecciona - </option>
+        <option value="Ingenieria del Computadores"> Ingenieria del Computadores </option>
+        <option value="Computación"> Computación </option>
+        <option value="Ingenieria del Software"> Ingenieria del Software </option>
+      </select> *
+      <br />
+			<div id="especialidadotra"><input type="text" id="especialidad" name="otraEspecialidad"> </div>
+			<p> Seleccione una Foto :<br /><input type="file" id="file" name="foto" onchange="showImage(this)"></p>
+			<div id="imageShow"></div>
+			<p>Intereses:<br />
+			<textarea id="intereses" name="intereses" cols=30 rows=5></textarea></p>
+			<p> * Obligatorio</p>
+      <div id='errorPassword'></div>
+			<div id='errorRepeatPassword'></div>
+			<div id='errorTelefono'></div>
+			<div id='errorEspecialidad'></div>
+      <input type=submit>
+      </form>
+	   </section>
+	   </DIV>
+</BODY>
+</HTML>

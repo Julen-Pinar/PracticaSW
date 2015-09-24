@@ -126,39 +126,6 @@ var showImage = function(input) {
   }
 
 }
-
-var addErrorPassword = function (text) {
-  var dom_pointer = document.getElementById("errorPassword");
-  dom_pointer.innerHTML = "<p class='error'>"+text+"</p>";
-}
-var removeErrorPassword = function () {
-  var dom_pointer = document.getElementById("errorPassword");
-  dom_pointer.innerHTML = "";
-}
-var addErrorRepeatPassword = function (text) {
-  var dom_pointer = document.getElementById("errorRepeatPassword");
-  dom_pointer.innerHTML = "<p class='error'>"+text+"</p>";
-}
-var removeErrorRepeatPassword = function () {
-  var dom_pointer = document.getElementById("errorRepeatPassword");
-  dom_pointer.innerHTML = "";
-}
-var addErrorTelefono = function (text) {
-  var dom_pointer = document.getElementById("errorTelefono");
-  dom_pointer.innerHTML = "<p class='error'>"+text+"</p>";
-}
-var removeErrorTelefono = function () {
-  var dom_pointer = document.getElementById("errorTelefono");
-  dom_pointer.innerHTML = "";
-}
-var addErrorEspecialidad = function (text) {
-  var dom_pointer = document.getElementById("errorEspecialidad");
-  dom_pointer.innerHTML = "<p class='error'>"+text+"</p>";
-}
-var removeErrorEspecialidad = function () {
-  var dom_pointer = document.getElementById("errorEspecialidad");
-  dom_pointer.innerHTML = "";
-}
 var addError = function(text,element) {
   var dom_pointer = document.getElementById(element);
   dom_pointer.innerHTML = "<p class='error'>"+text+"</p>";
@@ -167,3 +134,6 @@ var removeError = function(element) {
   var dom_pointer = document.getElementById(element);
   dom_pointer.innerHTML = "";
 }
+$(document).ready (function() {
+	$("Form").hide();
+});
