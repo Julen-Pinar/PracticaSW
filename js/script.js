@@ -10,12 +10,14 @@ var verValores = function() {
 var validar = function () {
   // Pongo en lineas separadas para que compruebe todas y siga aunque la primera sea falsa(evaluacion en cortocircuito)
   var correoOK = validarCorreo();
-  var nombreApellidosOK = validarNombreApellidos();
+  var NombreOK = validarNombre();
+  var Apellido1OK = validarApellido1();
+  var Apellido2OK = validarApellido2();
   var passwordOK = validarPassword();
   var repeatPasswordOK = validarRepeatPassword();
   var telefonoOK = validarTelefono();
   var especialidadOk = validarEspecialidad();
-  return correoOK && nombreApellidosOK && passwordOK && repeatPasswordOK && telefonoOK && especialidadOk;
+  return correoOK && NombreOK && Apellido1OK && Apellido2OK && passwordOK && repeatPasswordOK && telefonoOK && especialidadOk;
 }
 var validarCorreo = function() {
   var dom_pointer = document.getElementById("Email");
@@ -29,9 +31,35 @@ var validarCorreo = function() {
     return true;
   }
 }
-var validarNombreApellidos = function() {
-  var dom_pointer = document.getElementById("NombreApellidos");
-  var reg = dom_pointer.value.match(/[A-Za-z]+\s[A-Za-z]+\s[A-Za-z]+/i);
+var validarNombre = function() {
+  var dom_pointer = document.getElementById("Nombre");
+  var reg = dom_pointer.value.match(/[A-Za-z]+/i);
+  if(reg === null) {
+    dom_pointer.style.borderColor = "#FE2E2E";
+    return false;
+
+  } else {
+    dom_pointer.style.borderColor ="#8AFC94";
+    return true;
+  }
+}
+
+var validarApellido1 = function() {
+  var dom_pointer = document.getElementById("Apellido1");
+  var reg = dom_pointer.value.match(/[A-Za-z]+/i);
+  if(reg === null) {
+    dom_pointer.style.borderColor = "#FE2E2E";
+    return false;
+
+  } else {
+    dom_pointer.style.borderColor ="#8AFC94";
+    return true;
+  }
+}
+
+var validarApellido2 = function() {
+  var dom_pointer = document.getElementById("Apellido2");
+  var reg = dom_pointer.value.match(/[A-Za-z]+/i);
   if(reg === null) {
     dom_pointer.style.borderColor = "#FE2E2E";
     return false;

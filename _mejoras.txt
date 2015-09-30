@@ -1,4 +1,2 @@
-*Cambiar el color de verificación de los textox del fondo al borde (estilo HTML5).
-*Nombre, Apellido1, Apellido2. 
-*texto placeholder en los textbox.
+*Pulir texto de error.
 *revisar pattern del email.
