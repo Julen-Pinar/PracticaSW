@@ -1,0 +1,1 @@
+30/09- Cambiar el color de verificación de los textox del fondo al borde (estilo HTML5).

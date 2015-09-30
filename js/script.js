@@ -21,11 +21,11 @@ var validarCorreo = function() {
   var dom_pointer = document.getElementById("Email");
   var reg = dom_pointer.value.match(/^[A-Za-z]*\d{3}@ikasle.ehu.(es|eus)$/i);
   if(reg === null) {
-    dom_pointer.style.backgroundColor = "#FE2E2E";
+    dom_pointer.style.borderColor = "#FE2E2E";
     return false;
 
   } else {
-    dom_pointer.style.backgroundColor ="#8AFC94";
+    dom_pointer.style.borderColor ="#8AFC94";
     return true;
   }
 }
@@ -33,11 +33,11 @@ var validarNombreApellidos = function() {
   var dom_pointer = document.getElementById("NombreApellidos");
   var reg = dom_pointer.value.match(/[A-Za-z]+\s[A-Za-z]+\s[A-Za-z]+/i);
   if(reg === null) {
-    dom_pointer.style.backgroundColor = "#FE2E2E";
+    dom_pointer.style.borderColor = "#FE2E2E";
     return false;
 
   } else {
-    dom_pointer.style.backgroundColor ="#8AFC94";
+    dom_pointer.style.borderColor ="#8AFC94";
     return true;
   }
 }
@@ -46,12 +46,12 @@ var validarPassword = function() {
   if(dom_pointer.value.length < 6) {
     //addErrorPassword("Password mayor de 6 caracteres");
     addError("Password mayor de 6 caracteres", "errorPassword");
-    dom_pointer.style.backgroundColor = "#FE2E2E";
+    dom_pointer.style.borderColor = "#FE2E2E";
     return false;
 
   } else {
     removeError("errorPassword");
-    dom_pointer.style.backgroundColor ="#8AFC94";
+    dom_pointer.style.borderColor ="#8AFC94";
     return true;
   }
 }
@@ -61,12 +61,12 @@ var validarRepeatPassword = function() {
   if((dom_pointer.value !== dom_pointer2.value) || (dom_pointer.value.length < 6) ) {
     //addErrorRepeatPassword("Password no son iguales");
     addError("Password no son iguales", "errorRepeatPassword");
-    dom_pointer.style.backgroundColor = "#FE2E2E";
+    dom_pointer.style.borderColor = "#FE2E2E";
     return false;
 
   } else {
     removeError("errorRepeatPassword");
-    dom_pointer.style.backgroundColor ="#8AFC94";
+    dom_pointer.style.borderColor ="#8AFC94";
     return true;
   }
 }
@@ -76,12 +76,12 @@ var validarTelefono = function() {
   if(reg === null) {
     //addErrorTelefono("El telefono tiene que tener 9 digitos");
     addError("El telefono tiene que tener 9 digitos", "errorTelefono");
-    dom_pointer.style.backgroundColor = "#FE2E2E";
+    dom_pointer.style.borderColor = "#FE2E2E";
     return false;
 
   } else {
     removeError("errorTelefono");
-    dom_pointer.style.backgroundColor ="#8AFC94";
+    dom_pointer.style.borderColor ="#8AFC94";
     return true;
   }
 }
@@ -91,25 +91,25 @@ var validarEspecialidad = function() {
   if(dom_pointer.options.selectedIndex === 0 ) {
     //addErrorEspecialidad("Seleccione una especialidad");
     addError("Seleccione una especialidad", "errorEspecialidad");
-    dom_pointer.style.backgroundColor = "#FE2E2E";
+    dom_pointer.style.borderColor = "#FE2E2E";
     document.getElementById("especialidadotra").style.display = "none";
     return false;
 
   } else if (dom_pointer.options.selectedIndex === 4){
-    dom_pointer.style.backgroundColor ="#8AFC94";
+    dom_pointer.style.borderColor ="#8AFC94";
     document.getElementById("especialidadotra").style.display = "block";
 
     if(dom_pointer2.value.length === 0) {
-      dom_pointer2.style.backgroundColor = "#FE2E2E";
+      dom_pointer2.style.borderColor = "#FE2E2E";
       return false;
     } else {
-      dom_pointer2.style.backgroundColor = "#8AFC94";
+      dom_pointer2.style.borderColor = "#8AFC94";
       return true;
     }
   } else {
     removeError("errorEspecialidad");
     document.getElementById("especialidadotra").style.display = "none";
-    dom_pointer.style.backgroundColor ="#8AFC94";
+    dom_pointer.style.borderColor ="#8AFC94";
     dom_pointer2.value= "";
     return true;
   }
