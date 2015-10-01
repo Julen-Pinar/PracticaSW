@@ -12,6 +12,12 @@ a:hover {
 	color: red;
 	font-size:12px;
 }
+input{
+	border-style:solid;
+}
+input[type="file"] {
+	border-style:none;
+}
 #especialidadotra {
 	display:none;
 }

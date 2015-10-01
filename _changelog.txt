@@ -1,3 +1,5 @@
+01/10- Cambiar border-style heredado por un solid
+
 30/09:A: -Separado el cambo NombreApellidos a Nombre, Apellido1 y Apellido2.
 	-Se generan verificadores js para los nuevos campos.
 	-Se modifica validar() js.
