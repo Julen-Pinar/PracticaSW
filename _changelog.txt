@@ -1,3 +1,5 @@
+01/10:B: -Inicio de registrar.php
+
 01/10:A: -Añadido carpeta trash con cosas que no pertenecen a otras carpetas
 
 01/10    -Cambiar border-style heredado por un solid
