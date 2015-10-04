@@ -22,7 +22,13 @@ mysql_select_db("quiz") or die(mysql_error());
         while($row = mysql_fetch_array( $usuarios )) {
 					echo "<div class='usuario'>";
 					echo "<div id='foto'><img src='img/default_profile.gif' width=100></div>";
-          echo "<div id='datos'>".$row['email']."<br>".$row['nombre']." ".$row['primerapellido']." ".$row['segundoapellido']."<br>".$row['especialidad']."<br><b>Intereses:</b><br>".$row['intereses']."</div><br>";
+					// Si interes vacio no lo muestra
+					$intereses = $row['intereses'];
+					$interesesText = "";
+					if(!empty(trim($intereses))) {
+						$interesesText .= "<br><b>Intereses:</b><br>".$intereses;
+					}
+          echo "<div id='datos'>".$row['email']."<br>".$row['nombre']." ".$row['primerapellido']." ".$row['segundoapellido']."<br>".$row['especialidad'].$interesesText."</div><br>";
 					echo "</div><br>";
         }
       ?>
