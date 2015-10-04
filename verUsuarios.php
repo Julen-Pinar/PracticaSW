@@ -1,6 +1,7 @@
 <?php
-mysql_connect("localhost", "root", "") or die(mysql_error());
-mysql_select_db("quiz") or die(mysql_error());
+include("config.php");
+mysql_connect($DOMAIN, $USERNAME, $PASSWORD) or die(mysql_error());
+mysql_select_db($DB) or die(mysql_error());
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
