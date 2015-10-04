@@ -1,5 +1,8 @@
 04/10:A: -Inicio de verUsuarios.php, añadir CSS .usuarios al default.css
 
+04/10	 -Terminado registrar.php
+	 -Todas las variables de registro.html en mayúscula.
+
 01/10:B: -Inicio de registrar.php
 
 01/10:A: -Añadido carpeta trash con cosas que no pertenecen a otras carpetas

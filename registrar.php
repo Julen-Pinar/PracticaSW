@@ -1,17 +1,12 @@
 <?php
-echo $_POST["Email"] . "<br>";
-    echo $_POST["Nombre"] . "<br>";
-        echo $_POST["Apellido1"] . "<br>";
-                echo $_POST["Apellido2"] . "<br>";
-
-$email = $_POST["Email"];
-$nombre = $_POST["Nombre"];
-$apellido1 = $_POST["Apellido1"];
-$apellido2 = $_POST["Apellido2"];
-$password = $_POST["Password"];
-$telefono = $_POST["Telefono"];
-$especialidad = $_POST["Especialidad"];
-$intereses = $_POST["intereses"];
-
-
+mysql_connect("localhost","root","") or die(mysql_error());
+mysql_select_db("quiz") or die(mysql_error());
+$sql="INSERT INTO usuario(email, nombre, primerapellido, segundoapellido, password, telefono, especialidad, intereses) VALUES
+('$_POST[Email]','$_POST[Nombre]','$_POST[Apellido1]','$_POST[Apellido2]','$_POST[Password]','$_POST[Telefono]','$_POST[Especialidad]','$_POST[Intereses]')";
+if (!mysql_query($sql))
+{
+die('Error: ' . mysql_error());
+}
+echo "1 record added";
+mysql_close();
 ?>
