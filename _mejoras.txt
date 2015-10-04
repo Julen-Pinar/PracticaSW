@@ -1,2 +1,2 @@
 *Pulir texto de error.
-*revisar pattern del email.
+*Guardar contraseñas en la DB en MD5.

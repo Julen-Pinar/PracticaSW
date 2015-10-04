@@ -8,7 +8,6 @@ $otro= $_POST['Especialidad'];
 if (strcmp ($otro, "Otros")==0)
 {
 	$otro=$_POST['otraEspecialidad'];
-	echo $_POST['otraEspecialidad'];
 }
 
 $sql="INSERT INTO usuario(email, nombre, primerapellido, segundoapellido, password, telefono, especialidad, intereses) VALUES
