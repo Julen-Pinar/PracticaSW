@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-10-2015 a las 10:03:00
+-- Tiempo de generación: 04-10-2015 a las 19:03:46
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -27,6 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `usuario` (
+  `user_id` int(11) NOT NULL,
   `email` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `primerapellido` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
@@ -45,8 +46,18 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`email`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `user_id` (`user_id`);
 
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
