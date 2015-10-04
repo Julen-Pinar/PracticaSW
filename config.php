@@ -1,4 +1,6 @@
 <?php
+  error_reporting(0);
+	
   $DOMAIN = "mysql.hostinger.es";
   $USERNAME = "u243202774_sw";
   $PASSWORD = "sistemasweb";
