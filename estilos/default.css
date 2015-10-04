@@ -87,7 +87,7 @@ hr {
 
 }
 .usuario {
-		background-color: rgba(0, 0, 255, 0.1);
+	background-color: rgba(0, 0, 255, 0.1);
 	padding:10px;
 	overflow:auto;
 	margin:0 auto;
@@ -100,5 +100,4 @@ border:1px solid black;
 }
 #datos {
 	float:right;
-	width:250px;
 }
