@@ -16,7 +16,7 @@
 include("config.php");
 if (empty($_POST[Email]) || empty($_POST[Nombre]) || empty($_POST[Apellido1]) || empty($_POST[Apellido2]) || empty($_POST[Password]) || empty($_POST[Telefono]))
 {
-	die('Error: Campos vacíos. <br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+	die('Error: Campos vacíos. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 	
 }	
 	
@@ -33,7 +33,7 @@ $sql="INSERT INTO usuario(email, nombre, primerapellido, segundoapellido, passwo
 if (!mysql_query($sql))
 {
 
-die('Error: ' . mysql_error() . '<br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+die('Error: ' . mysql_error() . '<br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 echo "1 record added";
 mysql_close();
