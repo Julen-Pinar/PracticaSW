@@ -9,4 +9,5 @@ die('Error: ' . mysql_error());
 }
 echo "1 record added";
 mysql_close();
+echo "<p> <a href='verUsuarios.php'> Ver usuarios </a>";
 ?>
