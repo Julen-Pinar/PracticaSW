@@ -18,7 +18,7 @@ mysql_select_db("quiz") or die(mysql_error());
       </DIV>
     <DIV class="usuarios">
       <?php
-      $usuarios = mysql_query("select * from usuario");
+      $usuarios = mysql_query("select * from usuario ORDER BY user_id ASC");
         while($row = mysql_fetch_array( $usuarios )) {
 					echo "<div class='usuario'>";
 					echo "<div id='foto'><img src='img/default_profile.gif' width=100></div>";
