@@ -1,7 +1,5 @@
 <?php
 include("config.php");
-mysql_connect($DOMAIN, $USERNAME, $PASSWORD) or die(mysql_error());
-mysql_select_db($DB) or die(mysql_error());
 
 $otro= $_POST['Especialidad'];
 
