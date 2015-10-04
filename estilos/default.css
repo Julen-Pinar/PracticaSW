@@ -82,6 +82,23 @@ hr {
 	margin:0 10px;
 }
 .usuarios {
+
 	text-align:right;
-	margin:0 10px;
+
+}
+.usuario {
+		background-color: rgba(0, 0, 255, 0.1);
+	padding:10px;
+	overflow:auto;
+	margin:0 auto;
+	width:400px;
+}
+#foto {
+float:left;
+width:100px;
+border:1px solid black;
+}
+#datos {
+	float:right;
+	width:250px;
 }

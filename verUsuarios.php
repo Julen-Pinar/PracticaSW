@@ -1,7 +1,6 @@
 <?php
 mysql_connect("localhost", "root", "") or die(mysql_error());
-mysql_select_db("quiz");
-$usuarios = mysql_query("select * from usuarios");
+mysql_select_db("quiz") or die(mysql_error());
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -18,6 +17,15 @@ $usuarios = mysql_query("select * from usuarios");
     <hr>
       </DIV>
     <DIV class="usuarios">
+      <?php
+      $usuarios = mysql_query("select * from usuario");
+        while($row = mysql_fetch_array( $usuarios )) {
+					echo "<div class='usuario'>";
+					echo "<div id='foto'><img src='img/default_profile.gif' width=100></div>";
+          echo "<div id='datos'>".$row['email']."<br>".$row['nombre']." ".$row['primerapellido']." ".$row['segundoapellido']."<br>".$row['especialidad']."<br><b>Intereses:</b><br>".$row['intereses']."</div><br>";
+					echo "</div><br>";
+        }
+      ?>
 
     </DIV>
     </DIV>
