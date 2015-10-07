@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 04-10-2015 a las 19:03:46
+-- Tiempo de generación: 07-10-2015 a las 09:26:29
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -35,7 +35,8 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `password` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `telefono` int(11) NOT NULL,
   `especialidad` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
-  `intereses` longtext COLLATE utf8_spanish_ci NOT NULL
+  `intereses` longtext COLLATE utf8_spanish_ci NOT NULL,
+  `foto` blob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
