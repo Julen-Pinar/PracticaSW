@@ -20,7 +20,7 @@ if (empty($_REQUEST[Email]) || empty($_REQUEST[Nombre]) || empty($_REQUEST[Apell
 
 }
 
-$otro= $_POST['Especialidad'];
+$otro= $_REQUEST['Especialidad'];
 
 if (!filter_var($_REQUEST[Email], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]*\d{3}@ikasle.ehu.(es|eus)$/"))))
 {
@@ -29,11 +29,11 @@ if (!filter_var($_REQUEST[Email], FILTER_VALIDATE_REGEXP, array("options" => arr
 
 if (strcmp ($otro, "Otros")==0)
 {
-	$otro=$_POST['otraEspecialidad'];
+	$otro=$_REQUEST['otraEspecialidad'];
 }
 
 $sql="INSERT INTO usuario(email, nombre, primerapellido, segundoapellido, password, telefono, especialidad, intereses) VALUES
-('$_POST[Email]','$_POST[Nombre]','$_POST[Apellido1]','$_POST[Apellido2]','$_POST[Password]','$_POST[Telefono]', '$otro' ,'$_POST[Intereses]')";
+('$_REQUEST[Email]','$_REQUEST[Nombre]','$_REQUEST[Apellido1]','$_REQUEST[Apellido2]','$_REQUEST[Password]','$_REQUEST[Telefono]', '$otro' ,'$_REQUEST[Intereses]')";
 if (!mysql_query($sql))
 {
 
