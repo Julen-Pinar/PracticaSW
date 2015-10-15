@@ -22,7 +22,7 @@ if (empty($_REQUEST[Email]) || empty($_REQUEST[Nombre]) || empty($_REQUEST[Apell
 
 $otro= $_POST['Especialidad'];
 
-if (!filter_var($_POST[Email], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]*\d{3}@ikasle.ehu.(es|eus)$/"))))
+if (!filter_var($_REQUEST[Email], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]*\d{3}@ikasle.ehu.(es|eus)$/"))))
 {
 		die('Error: Email no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
