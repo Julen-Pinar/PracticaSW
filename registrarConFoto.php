@@ -62,7 +62,7 @@ switch($otro) {
 	case "Computación":
 	case "Ingenieria del Software":
 			break;
-	case default:
+	default:
 			die('Error: Especialidad no correcta. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
