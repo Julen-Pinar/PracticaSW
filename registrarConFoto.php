@@ -26,18 +26,26 @@ if (!filter_var($_REQUEST[Email], FILTER_VALIDATE_REGEXP, array("options" => arr
 		die('Error: Email no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
-if (!filter_var($_REQUEST[Nombre], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+/")))){
+if (!filter_var($_REQUEST[Nombre], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z]+$/")))){
 		die('Error: Nombre no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
-if (!filter_var($_REQUEST[Apellido1], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+/")))){
+if (!filter_var($_REQUEST[Apellido1], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+$/")))){
 		die('Error: Primer apellido no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
-if (!filter_var($_REQUEST[Apellido2], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+/")))){
+if (!filter_var($_REQUEST[Apellido2], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+$/")))){
 		die('Error: Segundo apellido no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
+if (strlen($_REQUEST[Password]) < 6) {
+			die('Error: Password requiere al menos 6 caracteres. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
+
+if ($_REQUEST[RepeatPassword] != $_REQUEST[Password]) {
+			die('Error: Introduzca la contraseña correctamente en la verificación de contraseña. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
+		
 if (!filter_var($_REQUEST[Telefono], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^\d{9}$/")))){
 		die('Error: Telefono no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
