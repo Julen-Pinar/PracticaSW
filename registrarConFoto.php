@@ -26,8 +26,20 @@ if (!filter_var($_REQUEST[Email], FILTER_VALIDATE_REGEXP, array("options" => arr
 		die('Error: Email no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
-if (!filter_var($_REQUEST[Nombre], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/[A-Za-z]+/")))){
+if (!filter_var($_REQUEST[Nombre], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+/")))){
 		die('Error: Nombre no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
+
+if (!filter_var($_REQUEST[Apellido1], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+/")))){
+		die('Error: Primer apellido no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
+
+if (!filter_var($_REQUEST[Apellido2], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+/")))){
+		die('Error: Segundo apellido no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
+
+if (!filter_var($_REQUEST[Telefono], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^\d{9}$/")))){
+		die('Error: Telefono no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
 if (strcmp ($otro, "Otros")==0)
