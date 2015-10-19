@@ -26,6 +26,10 @@ if (!filter_var($_REQUEST[Email], FILTER_VALIDATE_REGEXP, array("options" => arr
 		die('Error: Email no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
+if (!filter_var($_REQUEST[Nombre], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/[A-Za-z]+/")))){
+		die('Error: Nombre no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
+
 if (strcmp ($otro, "Otros")==0)
 {
 	$otro=$_REQUEST['otraEspecialidad'];
