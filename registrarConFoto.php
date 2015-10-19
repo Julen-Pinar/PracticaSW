@@ -45,14 +45,25 @@ if (strlen($_REQUEST[Password]) < 6) {
 if ($_REQUEST[RepeatPassword] != $_REQUEST[Password]) {
 			die('Error: Introduzca la contraseña correctamente en la verificación de contraseña. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
-		
+
 if (!filter_var($_REQUEST[Telefono], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^\d{9}$/")))){
 		die('Error: Telefono no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
-if (strcmp ($otro, "Otros")==0)
-{
-	$otro=$_REQUEST['otraEspecialidad'];
+// SWITCH para Especialidad
+switch($otro) {
+	case "Otros":
+			$otro=$_REQUEST['otraEspecialidad'];
+			if (!filter_var($otro, FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]+$/")))){
+					die('Error: Otra Especialidad no correcta. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+			}
+			break;
+	case "Ingenieria del Computadores":
+	case "Computación":
+	case "Ingenieria del Software":
+			break;
+	case default:
+			die('Error: Especialidad no correcta. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
 $file = $_FILES["foto"]["tmp_name"];
