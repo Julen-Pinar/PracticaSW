@@ -11,7 +11,6 @@
       session_start();
       $_SESSION['usuario'] = $usuario;
       header("Location: insertarPregunta.php");
-      print_r($_SESSION);
     } else {
           header("Location: login.php?error=No se puede loguear con este usuario y contraseña");
     }
