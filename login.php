@@ -13,6 +13,9 @@
     <hr>
   </DIV>
     <?php
+		if(isset($_GET['error'])) {
+			echo "<span class='error_login'>" . $_GET['error'] . "</span>";
+		}
     $method = $_SERVER['REQUEST_METHOD'];
      switch ($method) {
        case 'GET':
