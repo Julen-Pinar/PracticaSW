@@ -7,6 +7,11 @@
 	<META charset="utf-8">
 </HEAD>
 <BODY>
+	<?php
+		if(!isset($_SESSION['usuario'])) {
+			header("Location: login.php");
+		}
+	?>
 	<DIV class="container_form">
 		<DIV class='title'>
       <h1>Insertar Pregunta</h1>
