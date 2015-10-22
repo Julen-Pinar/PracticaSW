@@ -20,15 +20,17 @@ include("config.php");
 
         function mostrarPreguntas($user) {
           $preguntas = mysql_query("SELECT * FROM preguntas");
+					while($row = mysql_fetch_array($preguntas))
+					{
+						echo "<div class='pregunta'>". $row['pregunta'] ."</div><div class='complejidad'>".$row['complejidad']."</DIV><br /><br /><br /><hr>";
+					}
           switch($user)
           {
             case "anon":
-              while($row = mysql_fetch_array($preguntas))
-              {
-                echo "<div class='pregunta'>". $row['pregunta'] ."</div><div class='complejidad'>".$row['complejidad']."</DIV><br /><br /><br /><hr>";
-              }
+							echo "<center>Watching as Anonymous</center><br />";
               break;
             default:
+							echo "<center>Watching as ".$_SESSION['usuario']."</center><br />";
 
           }
         }
