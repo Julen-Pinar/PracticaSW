@@ -8,7 +8,7 @@
 </HEAD>
 <BODY>
 	<?php
-		if (!(isset($_SESSION['usuario']) && $_SESSION['usuario'] != '')) {
+		if (!(session_status() == PHP_SESSION_ACTIVE)) {
 			header("Location: login.php");
 		}
 	?>
