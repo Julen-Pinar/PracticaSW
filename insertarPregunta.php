@@ -11,19 +11,24 @@
 		if (!(isset($_SESSION['usuario']) && $_SESSION['usuario'] != '')) {
 			header("Location: login.php");
 		}
+		
+		 $method = $_SERVER['REQUEST_METHOD'];
+     switch ($method) {
+       case 'GET':
+         include('formulario_insertarPreguta.php');
+         break;
+
+       case 'POST':
+         include('add_insertarPregunta.php');
+         break;
+     }
+		
 	?>
 	<DIV class="container_form">
 		<DIV class='title'>
       <h1>Insertar Pregunta</h1>
     <hr>
       </DIV>
-	  <DIV class='formulario'>
-	  <form id="insertar" method="GET" action="" name="insertar" onsubmit="">
-	   <p>  Pregunta: <input name="Pregunta" id="Pregunta" type="text"></p>
-	   <p>  Respuesta: <input name="Respuesta" id="Respuesta" type="text"></p>
-	   <p> Complejidad (opcional): <input name="Complejidad" id="Complejidad" type="number" min="1" max="5"></p>
-	    <input type=submit>
-	   </DIV>
  </DIV>
     <p><center><a href="layout.html">Atrás</a></center></p>
 </BODY>
