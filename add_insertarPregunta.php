@@ -12,6 +12,6 @@ if (!mysql_query($sql))
 die('Error: ' . mysql_error());
 }
 
-echo "<center>1 question added</center>";
+echo "<center>1 question added</center><br>";
 mysql_close();
 ?>
