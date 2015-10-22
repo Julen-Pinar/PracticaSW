@@ -16,7 +16,7 @@
 		 $method = $_SERVER['REQUEST_METHOD'];
      switch ($method) {
        case 'GET':
-         include('formulario_insertarPreguta.php');
+         include('formulario_insertarPregunta.php');
          break;
 
        case 'POST':
