@@ -7,7 +7,13 @@
 	<META charset="utf-8">
 </HEAD>
 <BODY>
-	<?php
+	
+	<DIV class="container_form">
+		<DIV class='title'>
+      <h1>Insertar Pregunta</h1>
+    <hr>
+      </DIV>
+	  <?php
 	session_start();
 		if (!isset($_SESSION['usuario'])) {
 			header("Location: login.php");
@@ -25,11 +31,6 @@
      }
 		
 	?>
-	<DIV class="container_form">
-		<DIV class='title'>
-      <h1>Insertar Pregunta</h1>
-    <hr>
-      </DIV>
  </DIV>
     <p><center><a href="layout.html">Atrás</a></center></p>
 </BODY>
