@@ -18,7 +18,7 @@
       <TR>
         <TD><xsl:value-of select="@subject"></xsl:value-of></TD>
         <TD><xsl:value-of select="itemBody/p"></xsl:value-of></TD>
-        <TD><xsl:value-of select="correctResponse/value"></xsl:value-of></TD>
+        <TD><xsl:value-of select="@complexity"></xsl:value-of></TD>
       </TR>
       </xsl:for-each>
       </TABLE>
