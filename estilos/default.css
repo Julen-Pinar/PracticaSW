@@ -114,7 +114,6 @@ hr {
 }
 .preguntas {
 	overflow:auto;
-
 	margin:0 auto;
 	width:350px;
 }
@@ -139,4 +138,35 @@ border:1px solid black;
 }
 #datos {
 	float:right;
+}
+
+
+.tema {
+	display:block;
+	font-weight:bold;
+}
+.enunciado {
+	width:350px;
+	font-size:36px;
+}
+.complejidadXML::before {
+	content: "Dificultad: ";
+}
+.complejidadXML::after {
+	content: "/5";
+}
+.complejidadXML {
+	float:right;
+}
+table {
+	border-style: dotted;
+	border-color: rgba(0,0,255,0.5);
+}
+table td{
+	border-color:rgba(0,0,255,0.5);
+background: rgba(0,0,255,0.1);
+}
+table th {
+	border-color:rgba(0,0,255,0.5);
+	background: rgba(0,0,255,0.2);
 }
