@@ -1,0 +1,51 @@
+<HTML>
+  <HEAD>
+  </HEAD>
+  <BODY>
+<script type="text/javascript">
+function completar(){
+var enc=false;
+var xmlDoc = document.getElementById('datos').contentDocument;
+var correo = document.getElementById("email").value;
+console.log("CORREO MOTHERFUCKER -> " + correo);
+var listacorreos=xmlDoc.getElementsByTagName("email");
+var listatelefonos=xmlDoc.getElementsByTagName("telefono");
+var listanombres=xmlDoc.getElementsByTagName("nombre");
+var listaapellido1=xmlDoc.getElementsByTagName("apellido1");
+var listaapellido2=xmlDoc.getElementsByTagName("apellido2");
+for (var i = 0; i < listacorreos.length; i++) {
+  console.log(i + " MOTHERFUCKER -> " + listacorreos[i].childNodes[0].nodeValue);
+  if (correo==listacorreos[i].childNodes[0].nodeValue){
+    document.getElementById('telefono').value = listatelefonos[i].childNodes[0].nodeValue;
+    document.getElementById('nombre').value = listanombres[i].childNodes[0].nodeValue;
+    document.getElementById('apellidos').value = listaapellido1[i].childNodes[0].nodeValue + " " + listaapellido2[i].childNodes[0].nodeValue;
+    enc=true;
+    break;
+  }
+}
+  if (!enc)
+  {
+    alert ('Este correo no está registrado en la UPV/EHU. Introduzca otro');
+  }
+}
+</script>
+<div align="center">
+<h1>Buscar teléfono ...</h1>
+<OBJECT id="datos" data="usuarios.xml" type="text/xml" style="display:none">
+</OBJECT>
+<FORM METHOD="POST" ACTION="insertar.php">
+Correo <BR>
+<INPUT TYPE="TEXT" NAME="email" id="email" required><BR>
+Teléfono <BR>
+<INPUT TYPE="TEXT" NAME="telefono" id="telefono" required="required"
+maxlength="9" pattern="[0-9]{9}" /><BR>
+Nombre <BR>
+<INPUT TYPE="TEXT" NAME="nombre" id="nombre" required><BR>
+  Apellidos <BR>
+  <INPUT TYPE="TEXT" NAME="apellidos" id="apellidos" required><BR>
+<br><br>
+<INPUT TYPE="button" value="Autocompletar" onClick="javascript:completar()">
+</FORM>
+</div>
+</BODY>
+</HTML>
