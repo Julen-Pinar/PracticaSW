@@ -7,14 +7,12 @@ function completar(){
 var enc=false;
 var xmlDoc = document.getElementById('datos').contentDocument;
 var correo = document.getElementById("email").value;
-console.log("CORREO MOTHERFUCKER -> " + correo);
 var listacorreos=xmlDoc.getElementsByTagName("email");
 var listatelefonos=xmlDoc.getElementsByTagName("telefono");
 var listanombres=xmlDoc.getElementsByTagName("nombre");
 var listaapellido1=xmlDoc.getElementsByTagName("apellido1");
 var listaapellido2=xmlDoc.getElementsByTagName("apellido2");
 for (var i = 0; i < listacorreos.length; i++) {
-  console.log(i + " MOTHERFUCKER -> " + listacorreos[i].childNodes[0].nodeValue);
   if (correo==listacorreos[i].childNodes[0].nodeValue){
     document.getElementById('telefono').value = listatelefonos[i].childNodes[0].nodeValue;
     document.getElementById('nombre').value = listanombres[i].childNodes[0].nodeValue;
