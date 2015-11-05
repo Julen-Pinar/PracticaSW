@@ -3,13 +3,13 @@
   if (!isset($_SESSION['usuario'])) {
     header("Location: login.php");
   }
-  include("configlocal.php");
+  include("config.php");
   $pregunta = $_POST['Pregunta'];
   $respuesta = $_POST['Respuesta'];
   $complex = $_POST['Complejidad'];
   $subject = $_POST['Tema'];
   $usuario =  $_SESSION['usuario'];
-$sql="INSERT INTO preguntas(pregunta, respuesta, complejidad, usuario) VALUES ('$pregunta', '$respuesta',$complex, '$usuario')";
+$sql="INSERT INTO preguntas(pregunta, respuesta, complejidad, usuario, tema) VALUES ('$pregunta', '$respuesta',$complex, '$usuario', '$subject')";
 
 if (!mysql_query($sql))
 {

@@ -176,3 +176,19 @@ table th {
 .opciones li {
 	display:inline;
 }
+.edit_icon {
+	padding-left:25px;
+	background:url('../img/edit-icon.png') no-repeat;
+	background-size:20px;
+}
+.preview_icon {
+	padding-left:25px;
+	background:url('../img/preview-icon.png') no-repeat;
+	background-size:20px;
+}
+#preguntasUsuario  {
+	display:inline;
+}
+#preguntasTotales {
+	display:inline;
+}

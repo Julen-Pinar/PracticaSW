@@ -164,17 +164,40 @@ var removeError = function(element) {
 }
 //main
 var XMLHttpRequestObject = new XMLHttpRequest();
+var XMLConexionUsuario = new XMLHttpRequest();
+var XMLConexionTotal = new XMLHttpRequest();
+var estado;
+
 XMLHttpRequestObject.onreadystatechange = function() {
+	if(XMLHttpRequestObject.readyState == 1)  
+	{
+		var pointer = document.getElementById("page");
+		pointer.innerHTML = "<center><img src='img/loading.gif' width=150></center>";
+	}
   if(XMLHttpRequestObject.readyState == 4)
   {
     var pointer = document.getElementById("page");
     pointer.innerHTML = XMLHttpRequestObject.responseText;
   }
 };
+XMLConexionUsuario.onreadystatechange = function() {
+	 if(XMLConexionUsuario.readyState == 4)
+  {
+	var preguntasUsuario = document.getElementById("preguntasUsuario");
+	  preguntasUsuario.innerHTML = XMLConexionUsuario.responseText;
+  }
+};
+XMLConexionTotal.onreadystatechange = function() {
+	 if(XMLConexionTotal.readyState == 4)
+  {
+	var preguntasTotal = document.getElementById("preguntasTotales");
+	  preguntasTotal.innerHTML = XMLConexionTotal.responseText;
+  }
+};
 $(document).ready (function() {
 	$("Form").hide();
 });
-var estado;
+
 
 function showModificar() {
   if(estado!=="modificando") {
@@ -190,6 +213,14 @@ function showVer() {
     estado = "viendo";
   }
 }
+function showPreguntas() {
+	XMLConexionUsuario.open("GET","funciones.php?op=preguntasUsuario",true);
+	XMLConexionUsuario.send(null);
+	XMLConexionTotal.open("GET","funciones.php?op=preguntasTotales",true);
+	XMLConexionTotal.send(null);
+	setTimeout(showPreguntas, 5000);
+}
+
 function addPregunta() {
   var Pregunta = document.getElementById("Pregunta").value;
   var Respuesta = document.getElementById("Respuesta").value;

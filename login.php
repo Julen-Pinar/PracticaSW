@@ -13,6 +13,10 @@
     <hr>
   </DIV>
     <?php
+	session_start();
+		if (isset($_SESSION['usuario'])) {
+			header("Location: gestionPreguntas.php");
+		}
 		if(isset($_GET['error'])) {
 			echo "<span class='error_login'>" . $_GET['error'] . "</span>";
 		}

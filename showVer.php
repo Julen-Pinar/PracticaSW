@@ -5,12 +5,12 @@
 session_start();
 $usuario = $_SESSION['usuario'];
 include("config.php");
-$query = "select * from preguntas ORDER BY id_pregunta WHERE usuario=".$usuario;
+$query = "select * from preguntas WHERE usuario='". $usuario . "'";
 $preguntas = mysql_query($query);
 while($row = mysql_fetch_array( $preguntas )) {
   // Imprimimos Tema
   echo "<div class='tema'>";
-  echo "Default";
+  echo $row['tema'];
   echo "</div>\n";
   // Imprimimos enunciado
   echo "<div class='enunciado'>";
