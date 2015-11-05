@@ -1,5 +1,5 @@
 <?php
-  include("configlocal.php");
+  include("config.php");
   $usuario = $_POST['Email'];
   $password = $_POST['Password'];
 

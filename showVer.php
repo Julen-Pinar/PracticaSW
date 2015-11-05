@@ -4,7 +4,7 @@
 <?php
 session_start();
 $usuario = $_SESSION['usuario'];
-include("configlocal.php");
+include("config.php");
 $query = "select * from preguntas ORDER BY id_pregunta WHERE usuario=".$usuario;
 $preguntas = mysql_query($query);
 while($row = mysql_fetch_array( $preguntas )) {
