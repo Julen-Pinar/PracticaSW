@@ -162,6 +162,41 @@ var removeError = function(element) {
   var dom_pointer = document.getElementById(element);
   dom_pointer.innerHTML = "";
 }
+//main
+var XMLHttpRequestObject = new XMLHttpRequest();
+XMLHttpRequestObject.onreadystatechange = function() {
+  if(XMLHttpRequestObject.readyState == 4)
+  {
+    var pointer = document.getElementById("page");
+    pointer.innerHTML = XMLHttpRequestObject.responseText;
+  }
+};
 $(document).ready (function() {
 	$("Form").hide();
 });
+var estado;
+
+function showModificar() {
+  if(estado!=="modificando") {
+    XMLHttpRequestObject.open("GET", "showModificar.php");
+    XMLHttpRequestObject.send(null);
+    estado = "modificando";
+  }
+}
+function showVer() {
+  if(estado !== "viendo") {
+    XMLHttpRequestObject.open("GET", "showVer.php");
+    XMLHttpRequestObject.send(null);
+    estado = "viendo";
+  }
+}
+function addPregunta() {
+  var Pregunta = document.getElementById("Pregunta").value;
+  var Respuesta = document.getElementById("Respuesta").value;
+  var Tema = document.getElementById("Tema").value;
+  var Complejidad = document.getElementById("Complejidad").value;
+  XMLHttpRequestObject.open("POST", "add_insertarPregunta.php", true);
+  XMLHttpRequestObject.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+  XMLHttpRequestObject.send("Pregunta="+Pregunta+"&Respuesta="+Respuesta+"&Tema="+Tema+"&Complejidad="+Complejidad);
+  estado="desconocido";
+}

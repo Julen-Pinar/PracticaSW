@@ -16,6 +16,9 @@
       <DIV class="preguntas"><br />
 
 	  <?php
+		if(isset($_POST['user'])) {
+			
+		}
       $xml = simplexml_load_file("preguntas.xml");
       foreach ($xml->xpath('//assessmentItems/assessmentItem') as $pregunta) {
         // Imprimimos Tema

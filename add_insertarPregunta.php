@@ -1,10 +1,15 @@
 <?php
-  include("config.php");
+  session_start();
+  if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+  }
+  include("configlocal.php");
   $pregunta = $_POST['Pregunta'];
   $respuesta = $_POST['Respuesta'];
   $complex = $_POST['Complejidad'];
   $subject = $_POST['Tema'];
-$sql="INSERT INTO preguntas(pregunta, respuesta, complejidad) VALUES ('$pregunta', '$respuesta',$complex)";
+  $usuario =  $_SESSION['usuario'];
+$sql="INSERT INTO preguntas(pregunta, respuesta, complejidad, usuario) VALUES ('$pregunta', '$respuesta',$complex, '$usuario')";
 
 if (!mysql_query($sql))
 {
