@@ -166,6 +166,7 @@ var removeError = function(element) {
 var XMLHttpRequestObject = new XMLHttpRequest();
 var XMLConexionUsuario = new XMLHttpRequest();
 var XMLConexionTotal = new XMLHttpRequest();
+var XMLConectados = new XMLHttpRequest();
 var estado;
 
 XMLHttpRequestObject.onreadystatechange = function() {
@@ -194,6 +195,13 @@ XMLConexionTotal.onreadystatechange = function() {
 	  preguntasTotal.innerHTML = XMLConexionTotal.responseText;
   }
 };
+XMLConectados.onreadystatechange = function() {
+	 if(XMLConectados.readyState == 4)
+  {
+	var usuariosConectados = document.getElementById("usuariosConectados");
+	  usuariosConectados.innerHTML = XMLConectados.responseText;
+  }
+};
 $(document).ready (function() {
 	$("Form").hide();
 });
@@ -219,6 +227,12 @@ function showPreguntas() {
 	XMLConexionTotal.open("GET","funciones.php?op=preguntasTotales",true);
 	XMLConexionTotal.send(null);
 	setTimeout(showPreguntas, 5000);
+}
+
+function showConectados(){
+	XMLConectados.open("GET","funciones.php?op=usuariosConectados",true);
+	XMLConectados.send();
+	setTimeout(showConectados,5000);
 }
 
 function addPregunta() {

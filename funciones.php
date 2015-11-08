@@ -7,8 +7,10 @@ if(isset($_GET['op']))
 	if(strcmp($op, "preguntasUsuario") == 0)
 	{
 		echo preguntas_usuario($_SESSION['usuario']);
-	} else {
+	} else if(strcmp($op,"preguntasTotales")==0){
 		echo preguntas_totales();
+	} else if (strcmp($op,"usuariosConectados")==0){
+		echo usuariosConectados();
 	}
 }
 function preguntas_usuario($usuario){
@@ -31,5 +33,9 @@ while($row = mysql_fetch_array( $preguntas )) {
 echo $cont;
 }
 
+function usuariosConectados(){
+$number_of_users = count(scandir(ini_get("session.save_path"))) -3;
+echo $number_of_users;	
+}
 
 ?>
