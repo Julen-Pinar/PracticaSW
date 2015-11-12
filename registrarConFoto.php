@@ -80,7 +80,7 @@ if(strcmp($comprobacionCliente, "NO") == 0) {
 		die('Error: Email no matriculado. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
-$validarSoapClient = new nusoap_client( 'http://localhost/PracticaSW/comprobarContrasena.php?wsdl', false);
+$validarSoapClient = new nusoap_client( 'http://jpinarsw.esy.es/practicaSW/comprobarContrasena.php?wsdl', false);
 $validacionCliente = $validarSoapClient->call('validarContrasena', array('x' => $_POST['Password']));
 
 if(strcmp($validacionCliente, "INVALIDA") == 0)  {

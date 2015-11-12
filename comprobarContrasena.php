@@ -4,7 +4,7 @@ require_once('lib/nusoap.php');
 require_once('lib/class.wsdlcache.php');
 
 //creamos el objeto de tipo soap_server
-$ns="http://jpinarsw.esy.es/PracticaSW";
+$ns="http://jpinarsw.esy.es/practicaSW";
 $server = new soap_server;
 $server->configureWSDL('validarContrasena',$ns);
 $server->wsdl->schemaTargetNamespace=$ns;
