@@ -13,7 +13,7 @@
     <hr>
       </DIV><center>
 <?php
-include("config.php");
+include("configlocal.php");
 if (empty($_REQUEST[Email]) || empty($_REQUEST[Nombre]) || empty($_REQUEST[Apellido1]) || empty($_REQUEST[Apellido2]) || empty($_REQUEST[Password]) || empty($_REQUEST[Telefono]))
 {
 	die('Error: Campos vacíos. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
@@ -22,7 +22,7 @@ if (empty($_REQUEST[Email]) || empty($_REQUEST[Nombre]) || empty($_REQUEST[Apell
 
 $otro= $_REQUEST['Especialidad'];
 
-if (!filter_var($_REQUEST[Email], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]*\d{3}@ikasle.ehu.(es|eus)$/")))) {
+if (!filter_var($_REQUEST['Email'], FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[A-Za-z]*\d{3}@ikasle.ehu.(es|eus)$/")))) {
 		die('Error: Email no correcto. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
@@ -65,6 +65,22 @@ switch($otro) {
 	default:
 			die('Error: Especialidad no correcta. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
+
+//incluimos la clase nusoap.php
+require_once('lib/nusoap.php');
+require_once('lib/class.wsdlcache.php');
+
+//creamos el objeto de tipo soapclient.
+//http://www.mydomain.com/server.php se refiere a la url
+//donde se encuentra el servicio SOAP que vamos a utilizar.
+$soapclient = new nusoap_client( 'http://sw14.hol.es/ServiciosWeb/comprobarmatricula.php?wsdl', false);
+$comprobacionCliente = $soapclient->call('comprobar', array('x' => $_POST['Email']));
+
+if(strcmp($comprobacionCliente, "NO") == 0) {
+		die('Error: Email no matriculado. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
+
+
 
 $file = $_FILES["foto"]["tmp_name"];
 if(empty($file)) {
