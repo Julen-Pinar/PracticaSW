@@ -13,7 +13,7 @@
     <hr>
       </DIV><center>
 <?php
-include("configlocal.php");
+include("config.php");
 if (empty($_REQUEST[Email]) || empty($_REQUEST[Nombre]) || empty($_REQUEST[Apellido1]) || empty($_REQUEST[Apellido2]) || empty($_REQUEST[Password]) || empty($_REQUEST[Telefono]))
 {
 	die('Error: Campos vacíos. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
@@ -73,14 +73,19 @@ require_once('lib/class.wsdlcache.php');
 //creamos el objeto de tipo soapclient.
 //http://www.mydomain.com/server.php se refiere a la url
 //donde se encuentra el servicio SOAP que vamos a utilizar.
-$soapclient = new nusoap_client( 'http://sw14.hol.es/ServiciosWeb/comprobarmatricula.php?wsdl', false);
-$comprobacionCliente = $soapclient->call('comprobar', array('x' => $_POST['Email']));
+$comprobarSoapClient = new nusoap_client( 'http://sw14.hol.es/ServiciosWeb/comprobarmatricula.php?wsdl', false);
+$comprobacionCliente = $comprobarSoapClient->call('comprobar', array('x' => $_POST['Email']));
 
 if(strcmp($comprobacionCliente, "NO") == 0) {
 		die('Error: Email no matriculado. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
+$validarSoapClient = new nusoap_client( 'http://localhost/PracticaSW/comprobarContrasena.php?wsdl', false);
+$validacionCliente = $validarSoapClient->call('validarContrasena', array('x' => $_POST['Password']));
 
+if(strcmp($validacionCliente, "INVALIDA") == 0)  {
+		die('Error: Password no valido. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
+}
 
 $file = $_FILES["foto"]["tmp_name"];
 if(empty($file)) {
