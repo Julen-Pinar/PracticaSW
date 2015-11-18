@@ -36,6 +36,7 @@
       </ul>
       <div id="page">
       </div>
+	<br />
 	   </DIV>
 	   </DIV>
 	   <p><center><a href="layout.html">Atrás</a></center></p>
