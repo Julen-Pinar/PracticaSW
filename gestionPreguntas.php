@@ -19,7 +19,7 @@
 </HEAD>
 <BODY>
 	<DIV class="container_form">
-		
+		<a href="logout.php" class="logout">Logout</a>
 		<DIV class='title'>
 			<h1>Dashboard</h1>
 
