@@ -166,7 +166,7 @@ var removeError = function(element) {
 var XMLHttpRequestObject = new XMLHttpRequest();
 var XMLConexionUsuario = new XMLHttpRequest();
 var XMLConexionTotal = new XMLHttpRequest();
-var XMLConectados = new XMLHttpRequest();
+var XMLdelete = new XMLHttpRequest();
 var estado;
 
 XMLHttpRequestObject.onreadystatechange = function() {
@@ -232,6 +232,11 @@ function showPreguntas() {
 function showConectados(){
 	XMLConectados.open("GET","funciones.php?op=usuariosConectados",true);
 	XMLConectados.send();
+	setTimeout(showConectados,5000);
+}
+function delete() {
+	XMLdelete.open("GET","funciones.php?op=usuariosConectados",true);
+	XMLdelete.send();
 	setTimeout(showConectados,5000);
 }
 

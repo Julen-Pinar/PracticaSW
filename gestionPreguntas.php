@@ -3,6 +3,9 @@
 		if (!isset($_SESSION['usuario'])) {
 			header("Location: login.php");
 		}
+		if($_SESSION['profesor'] == 1)  {
+			header("Location: administrarPreguntas.php");
+		}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>

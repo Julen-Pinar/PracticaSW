@@ -145,6 +145,21 @@ border:1px solid black;
 	display:block;
 	font-weight:bold;
 }
+.temaTiny{
+	float:left;
+	width:150px;
+	font-weight:bold;
+}
+.creador{
+	float:right;
+	text-align:right;
+	width:200px;
+}
+.respuesta {
+	width:350px;
+	font-size:20px;
+	text-align:center;
+}
 .enunciado {
 	width:350px;
 	font-size:36px;
@@ -156,6 +171,9 @@ border:1px solid black;
 	content: "/5";
 }
 .complejidadXML {
+	float:right;
+}
+.opciones {
 	float:right;
 }
 table {

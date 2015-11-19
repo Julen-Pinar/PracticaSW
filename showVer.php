@@ -4,7 +4,7 @@
 <?php
 session_start();
 $usuario = $_SESSION['usuario'];
-include("config.php");
+include("configlocal.php");
 $query = "select * from preguntas WHERE usuario='". $usuario . "'";
 $preguntas = mysql_query($query);
 while($row = mysql_fetch_array( $preguntas )) {
