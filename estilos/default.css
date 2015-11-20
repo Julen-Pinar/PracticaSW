@@ -191,6 +191,7 @@ table th {
 	background: rgba(0,0,255,0.2);
 }
 .opciones{
+	text-decoration: none;
 	text-align:right;
 	list-style-type: none;
 }
@@ -207,6 +208,12 @@ table th {
 	background:url('../img/preview-icon.png') no-repeat;
 	background-size:20px;
 }
+.preview_icon {
+	padding-left:25px;
+	background:url('../img/delete-icon.png') no-repeat;
+	background-size:20px;
+}
+
 #preguntasUsuario  {
 	display:inline;
 }
