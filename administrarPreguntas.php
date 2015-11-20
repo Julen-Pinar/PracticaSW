@@ -19,7 +19,10 @@
 <BODY>
 	<DIV class="container_form">
 	<a href="logout.php" class="logout">Logout</a>
-	<div id="fade" class="black_overlay"></div>
+	<div id="light" class="white_content">
+		<div id="editor"></div>
+	</div>
+	<div id="fade" class="black_overlay" onClick="closeEdit();"></div>
 		<DIV class='title'>
       <h1>Preguntas</h1>
     <hr>
@@ -31,7 +34,7 @@
           $preguntas = mysql_query("SELECT * FROM preguntas");
 					while($row = mysql_fetch_array($preguntas))
 					{
-						while($row = mysql_fetch_array( $preguntas )) {
+							echo "<div id='pregunta".  $row['id_pregunta']  ."'>";
 						  // Imprimimos Tema
 						  echo "<div class='temaTiny'>";
 						  echo $row['tema'];
@@ -54,12 +57,11 @@
 						  echo "</div><br />";
 						  //Imprimimos opciones
 						  echo "<div class='opciones'>";
-						  echo "<a href='deletePregunta.php?id=". $row['id_pregunta'] ."'>X</a>";
-						  echo "<a href=''>Edit</a>";
+						  echo "<a href='javascript:deletePregunta(". $row['id_pregunta'] .")'>X</a>";
+						  echo "<a href='#' onclick='javascript:showEdit(". $row['id_pregunta'] .")'>Edit</a>";
 						  echo "</div>";
 						  //Barra y salto de linea
-						  echo "<br /><hr /><br />";
-						}
+						  echo "<br /><hr /><br /></div>";
 					}
           switch($user)
           {
@@ -79,9 +81,9 @@
         mostrarPreguntas($usuario);
 
 ?>
-   
-	  
-	  
+
+
+
 		</DIV>
     </DIV>
     <p><center><a href="layout.html">Atrás</a></center></p>

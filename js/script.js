@@ -167,10 +167,11 @@ var XMLHttpRequestObject = new XMLHttpRequest();
 var XMLConexionUsuario = new XMLHttpRequest();
 var XMLConexionTotal = new XMLHttpRequest();
 var XMLdelete = new XMLHttpRequest();
+var XMLeditor = new XMLHttpRequest();
 var estado;
 
 XMLHttpRequestObject.onreadystatechange = function() {
-	if(XMLHttpRequestObject.readyState == 1)  
+	if(XMLHttpRequestObject.readyState == 1)
 	{
 		var pointer = document.getElementById("page");
 		pointer.innerHTML = "<center><img src='img/loading.gif' width=150></center>";
@@ -200,6 +201,13 @@ XMLConectados.onreadystatechange = function() {
   {
 	var usuariosConectados = document.getElementById("usuariosConectados");
 	  usuariosConectados.innerHTML = XMLConectados.responseText;
+  }
+};
+XMLeditor.onreadystatechange = function() {
+  if(XMLeditor.readyState == 4)
+  {
+    var pointer = document.getElementById("light");
+    pointer.innerHTML = XMLeditor.responseText;
   }
 };
 $(document).ready (function() {
@@ -234,10 +242,24 @@ function showConectados(){
 	XMLConectados.send();
 	setTimeout(showConectados,5000);
 }
-function delete() {
-	XMLdelete.open("GET","funciones.php?op=usuariosConectados",true);
+function deletePregunta(num) {
+  var selector = "pregunta" + num;
+  document.getElementById(selector).innerHTML = "";
+	XMLdelete.open("GET","deletePregunta.php?id=" + num, true);
 	XMLdelete.send();
-	setTimeout(showConectados,5000);
+}
+function showEdit(num) {
+  window.open("editPregunta.php?id="+num, "_blank", "toolbar=no, scrollbars=yes, resizable=no, top=300, left=300, width=525, height=300");
+  //XMLeditor.open("GET","editPregunta.php?id=" + num, true);
+  //XMLeditor.send(null);
+  //document.getElementById('light').style.display='block';
+  //document.getElementById('fade').style.display='block';
+  //document.getElementById("fade").style.height = document.body.offsetHeight;
+}
+
+function closeEdit(num) {
+  document.getElementById('light').style.display='none';
+  document.getElementById('fade').style.display='none';
 }
 
 function addPregunta() {

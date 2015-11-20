@@ -28,7 +28,7 @@
 
 		</DIV>
 		<div class="formulario">
-		usuarios conectados: <div id="usuariosConectados"></div> 		
+		usuarios conectados: <div id="usuariosConectados"></div>
 		<DIV class="info">Preguntas del Usuario: <div id="preguntasUsuario"></div>/ Preguntas Totales: <div id="preguntasTotales"></div></DIV>
 	   </div>
     <hr>
