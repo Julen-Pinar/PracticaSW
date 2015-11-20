@@ -57,8 +57,8 @@
 						  echo "</div><br />";
 						  //Imprimimos opciones
 						  echo "<div class='opciones'>";
-						  echo "<a href='javascript:deletePregunta(". $row['id_pregunta'] .")'>X</a>";
-						  echo "<a href='#' onclick='javascript:showEdit(". $row['id_pregunta'] .")'>Edit</a>";
+						  echo "<a class='remove_icon' href='javascript:deletePregunta(". $row['id_pregunta'] .")'>X</a>";
+						  echo "<a href='#' class='edit_icon' onclick='javascript:showEdit(". $row['id_pregunta'] .")'>Edit</a>";
 						  echo "</div>";
 						  //Barra y salto de linea
 						  echo "<br /><hr /><br /></div>";

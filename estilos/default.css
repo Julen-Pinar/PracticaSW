@@ -191,6 +191,7 @@ table th {
 	background: rgba(0,0,255,0.2);
 }
 .opciones{
+	text-align:right;
 	list-style-type: none;
 }
 .opciones li {
