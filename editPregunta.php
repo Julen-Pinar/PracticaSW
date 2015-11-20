@@ -1,5 +1,12 @@
 <?php
 include("config.php");
+session_start();
+  if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+  }
+    if($_SESSION['profesor'] == 0)  {
+    header("Location: gestionPreguntas.php");
+  }
 $method = $_SERVER['REQUEST_METHOD'];
  switch ($method) {
    case 'GET':
