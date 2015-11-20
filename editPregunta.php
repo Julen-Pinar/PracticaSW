@@ -26,7 +26,7 @@ $method = $_SERVER['REQUEST_METHOD'];
   echo "Pregunta: <br /><input id='pregunta' name='pregunta' type=text value='". $row['pregunta'] ."' size=70><br/>";
   echo "Respuesta: <br /><input id='respuesta' name='respuesta' type=text value='". $row['respuesta'] ."' size=70><br />";
   echo "Complejidad: <br /><input id='complejidad' name='complejidad' type=text value='". $row['complejidad'] ."' size=10><br />";
-  echo "Autor: <br /><input id='usuario' name='usuario' type=text value='". $row['usuario'] ."' size=50><br />";
+  echo "Autor: <br /><input id='usuario' name='usuario' disabled type=text value='". $row['usuario'] ."' size=50><br />";
   echo "<input id='id_pregunta' name='id_pregunta' type=hidden value='". $row['id_pregunta'] ."'><br />";
 ?>
 <input type="submit" value="Actualizar">
