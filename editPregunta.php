@@ -1,5 +1,5 @@
 <?php
-include("configlocal.php");
+include("config.php");
 $method = $_SERVER['REQUEST_METHOD'];
  switch ($method) {
    case 'GET':
