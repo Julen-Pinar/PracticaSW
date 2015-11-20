@@ -37,7 +37,7 @@
 							echo "<div id='pregunta".  $row['id_pregunta']  ."'>";
 							//Imprimimos opciones
 							echo "<div class='opciones'>";
-							echo "<a class='remove_icon' href='javascript:deletePregunta(". $row['id_pregunta'] .")'> Eliminar</a>";
+							echo "<a class='delete_icon' href='javascript:deletePregunta(". $row['id_pregunta'] .")'> Eliminar</a>";
 							echo "<a href='#' class='edit_icon' onclick='javascript:showEdit(". $row['id_pregunta'] .")'> Editar</a>";
 							echo "</div>";
 						  // Imprimimos Tema
