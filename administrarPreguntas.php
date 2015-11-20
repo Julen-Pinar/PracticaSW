@@ -35,6 +35,11 @@
 					while($row = mysql_fetch_array($preguntas))
 					{
 							echo "<div id='pregunta".  $row['id_pregunta']  ."'>";
+							//Imprimimos opciones
+							echo "<div class='opciones'>";
+							echo "<a class='remove_icon' href='javascript:deletePregunta(". $row['id_pregunta'] .")'>X</a>";
+							echo "<a href='#' class='edit_icon' onclick='javascript:showEdit(". $row['id_pregunta'] .")'>Edit</a>";
+							echo "</div>";
 						  // Imprimimos Tema
 						  echo "<div class='temaTiny'>";
 						  echo $row['tema'];
@@ -55,11 +60,6 @@
 						  echo "<div class='complejidadXML'>";
 						  echo $row['complejidad'];
 						  echo "</div><br />";
-						  //Imprimimos opciones
-						  echo "<div class='opciones'>";
-						  echo "<a class='remove_icon' href='javascript:deletePregunta(". $row['id_pregunta'] .")'>X</a>";
-						  echo "<a href='#' class='edit_icon' onclick='javascript:showEdit(". $row['id_pregunta'] .")'>Edit</a>";
-						  echo "</div>";
 						  //Barra y salto de linea
 						  echo "<br /><hr /><br /></div>";
 					}
