@@ -13,7 +13,7 @@
     <hr>
       </DIV><center>
 <?php
-include("config.php");
+include("configlocal.php");
 if (empty($_REQUEST[Email]) || empty($_REQUEST[Nombre]) || empty($_REQUEST[Apellido1]) || empty($_REQUEST[Apellido2]) || empty($_REQUEST[Password]) || empty($_REQUEST[Telefono]))
 {
 	die('Error: Campos vacíos. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
@@ -87,14 +87,15 @@ if(strcmp($validacionCliente, "INVALIDA") == 0)  {
 		die('Error: Password no valido. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');
 }
 
+$password = sha1($_REQUEST[Password]);
 $file = $_FILES["foto"]["tmp_name"];
 if(empty($file)) {
 	$sql="INSERT INTO usuario(email, nombre, primerapellido, segundoapellido, password, telefono, especialidad, intereses, foto) VALUES
-	('$_REQUEST[Email]','$_REQUEST[Nombre]','$_REQUEST[Apellido1]','$_REQUEST[Apellido2]','$_REQUEST[Password]','$_REQUEST[Telefono]', '$otro' ,'$_REQUEST[Intereses]', NULL)";
+	('$_REQUEST[Email]','$_REQUEST[Nombre]','$_REQUEST[Apellido1]','$_REQUEST[Apellido2]','$password','$_REQUEST[Telefono]', '$otro' ,'$_REQUEST[Intereses]', NULL)";
 } else {
 	$image = addslashes(file_get_contents($file));
 	$sql="INSERT INTO usuario(email, nombre, primerapellido, segundoapellido, password, telefono, especialidad, intereses, foto) VALUES
-	('$_REQUEST[Email]','$_REQUEST[Nombre]','$_REQUEST[Apellido1]','$_REQUEST[Apellido2]','$_REQUEST[Password]','$_REQUEST[Telefono]', '$otro' ,'$_REQUEST[Intereses]', '$image')";
+	('$_REQUEST[Email]','$_REQUEST[Nombre]','$_REQUEST[Apellido1]','$_REQUEST[Apellido2]','$password','$_REQUEST[Telefono]', '$otro' ,'$_REQUEST[Intereses]', '$image')";
 }
 
 if (!mysql_query($sql))

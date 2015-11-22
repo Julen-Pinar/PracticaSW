@@ -9,7 +9,7 @@
 <BODY>
 	<DIV class="container_login">
 		<DIV class='title'>
-      <h1>Login</h1>
+      <h1>Recuperar Password</h1>
     <hr>
   </DIV>
     <?php
@@ -23,16 +23,16 @@
     $method = $_SERVER['REQUEST_METHOD'];
      switch ($method) {
        case 'GET':
-         include('formulario_login.php');
+         include('formulario_recuperar.php');
          break;
 
        case 'POST':
-         include('comprobar_login.php');
+         include('recuperar.php');
          break;
      }
 
      ?>
     </DIV>
-    <p><center><a href="recuperar_password.php">Recuperar Contraseña</a> <a href="layout.html">Atrás</a> </center></p>
+    <p><center><a href="recuperar_password.html">Recuperar Contraseña</a> <a href="layout.html">Atrás</a> </center></p>
 </BODY>
 </HTML>
