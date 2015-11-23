@@ -13,7 +13,7 @@
     <hr>
       </DIV><center>
 <?php
-include("configlocal.php");
+include("config.php");
 if (empty($_REQUEST[Email]) || empty($_REQUEST[Nombre]) || empty($_REQUEST[Apellido1]) || empty($_REQUEST[Apellido2]) || empty($_REQUEST[Password]) || empty($_REQUEST[Telefono]))
 {
 	die('Error: Campos vacíos. <br><br>  </center></DIV> <p><center><a href="layout.html">Atrás</a></center></p></BODY></HTML>');

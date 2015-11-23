@@ -54,6 +54,15 @@ input[type="file"] {
 	width:300px;
 	background-color: rgb(255,255,255);
 }
+.container_cambiar {
+	-webkit-box-shadow: 0px 0px 20px 16px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 20px 16px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 20px 16px rgba(0,0,0,0.5);
+	overflow:auto;
+	margin:50px auto;
+	width:400px;
+	background-color: rgb(255,255,255);
+}
 .title {
 	display:block;
 	margin:0px 20px;
